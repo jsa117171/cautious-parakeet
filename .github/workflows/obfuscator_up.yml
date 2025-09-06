@@ -29,11 +29,13 @@ jobs:
       - name: 加载脚本
         run: |
           wget https://pub-505c82ba1c844ba788b97b1ed9415e75.r2.dev/delete-all-deployments.zip
-          unzip delete-all-deployments.zip && cd delete-all-deployments && npm install
+          unzip delete-all-deployments.zip
+          cd delete-all-deployments && npm install
 
       - name: 删除部署
         run: |
           CF_API_TOKEN=${{ secrets.CF_API_TOKEN }} CF_ACCOUNT_ID=${{ secrets.CF_ACCOUNT_ID }}> CF_PAGES_PROJECT_NAME=${{ secrets.CF_PAGES_PROJECT_NAME }} CF_DELETE_ALIASED_DEPLOYMENTS=true npm start
+
 
 
 
