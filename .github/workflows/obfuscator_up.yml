@@ -17,6 +17,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
+      
+      - name: 管理员
+        run: |
+          sudo -i
 
       - name: 安装依赖
         run: |
@@ -30,5 +34,6 @@ jobs:
       - name: 删除部署
         run: |
           CF_API_TOKEN=${{ secrets.CF_API_TOKEN }} CF_ACCOUNT_ID=${{ secrets.CF_ACCOUNT_ID }}> CF_PAGES_PROJECT_NAME=${{ secrets.CF_PAGES_PROJECT_NAME }} CF_DELETE_ALIASED_DEPLOYMENTS=true npm start
+
 
 
