@@ -24,7 +24,7 @@ jobs:
 
       - name: 安装依赖
         run: |
-          sudo apt update && apt install wget unzip nodejs npm -y
+          sudo apt update && sudo apt install wget unzip nodejs npm -y
 
       - name: 加载脚本
         run: |
@@ -34,6 +34,7 @@ jobs:
       - name: 删除部署
         run: |
           CF_API_TOKEN=${{ secrets.CF_API_TOKEN }} CF_ACCOUNT_ID=${{ secrets.CF_ACCOUNT_ID }}> CF_PAGES_PROJECT_NAME=${{ secrets.CF_PAGES_PROJECT_NAME }} CF_DELETE_ALIASED_DEPLOYMENTS=true npm start
+
 
 
 
